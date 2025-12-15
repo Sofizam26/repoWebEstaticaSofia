@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "¡Gracias por visitar mi sitio, espero que te guste! 💜",
     "¡Que tengas un día maravilloso, lleno de energía positiva! ✨",
     "¡Explora, sonríe y disfruta tu visita! 🌸",
-    "¡Bienvenida de nuevo, Sofía te saluda con alegría! 💫"
+    "¡Bienvenida de nuevo, Sofía te saluda con alegría! 💫",
+    "Nueva linea"
   ];
 
   boton.addEventListener("click", () => {
