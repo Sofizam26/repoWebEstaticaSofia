@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const boton = document.getElementById("cambiarMensaje");
+  const formulario = document.getElementById("formulario");
+  const inputTexto = document.getElementById("textoUsuario");
   const mensaje = document.getElementById("mensaje");
 
-  const mensajes = [
-    "¡Gracias por visitar mi sitio, espero que te guste! 💜",
-    "¡Que tengas un día maravilloso, lleno de energía positiva! ✨",
-    "¡Explora, sonríe y disfruta tu visita! 🌸",
-    "¡Bienvenida de nuevo, Sofía te saluda con alegría! 💫",
-    "Nueva linea"
-  ];
+  formulario.addEventListener("submit", (e) => {
+    e.preventDefault(); // Evita que la página se recargue
 
-  boton.addEventListener("click", () => {
-    const nuevoMensaje = mensajes[Math.floor(Math.random() * mensajes.length)];
-    mensaje.textContent = nuevoMensaje;
+    const valorTexto = inputTexto.value.trim();
+
+    if (valorTexto !== "") {
+      mensaje.textContent = `¡Hola ${valorTexto}! Gracias por visitar mi página 💜`;
+      inputTexto.value = "";
+    } else {
+      mensaje.textContent = "Por favor, escribe algo 🙂";
+    }
   });
 });
