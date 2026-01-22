@@ -1,3 +1,19 @@
+<?php
+require_once __DIR__ . '/src/saludo.php';
+
+$mensaje = "¡Bienvenida a mi página web!";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $nombre = trim($_POST["nombre"] ?? "");
+
+    if ($nombre !== "") {
+        $mensaje = generarSaludo($nombre);
+    } else {
+        $mensaje = "Por favor, escribe tu nombre 🙂";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,23 +26,22 @@
   <div class="container">
     <h1>Sofía Z</h1>
 
-    <p id="mensaje">¡Bienvenida a mi página web!</p>
+    <!-- Mensaje generado en el servidor -->
+    <p id="mensaje"><?php echo htmlspecialchars($mensaje); ?></p>
 
     <!-- Formulario -->
-    <form id="formulario">
+    <form method="POST" action="">
       <input 
         type="text" 
-        id="textoUsuario" 
+        name="nombre"
         placeholder="Escribe tu nombre"
         required
       />
       <button type="submit">Enviar</button>
     </form>
 
-    <!-- Imagen de ejemplo -->
+    <!-- Imagen -->
     <img src="./imagenes/perro.jpg" alt="Imagen decorativa" class="imagen">
   </div>
-
-  <script src="./JS/script.js"></script>
 </body>
 </html>
